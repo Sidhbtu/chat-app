@@ -29,6 +29,13 @@ io.on('connection',(socket)=>{
     })
 })
 
-server.listen(4444,()=>{
-    console.log('Server started at http://localhost:4444')
-})
+// server.listen(process.env.PORT || 4444,()=>{
+//     console.log('Server started..........')
+// })
+
+app.set( 'port', ( process.env.PORT || 4444 ));
+
+//Start node server
+server.listen( app.get( 'port' ), function() {
+  console.log( 'Node server is running on port ' + app.get( 'port' ));
+  });
